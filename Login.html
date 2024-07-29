@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inicio de Sesión</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #4a4a4a;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .header-button {
+            margin-left: auto;
+            background-color: #6a1b9a; /* Morado oscuro */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .header-button:hover {
+            background-color: #4a148c; /* Morado más oscuro */
+        }
+        .login-container {
+            position: relative;
+            margin-top: 80px; /* Espacio para el encabezado */
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .login-form {
+            width: 50%;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6a1b9a; /* Morado oscuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #4a148c; /* Morado más oscuro */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .slider-container {
+            display: none;
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .slider-container img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        .action-container {
+            display: none;
+            text-align: center;
+        }
+        .action-container button {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #6a1b9a; /* Morado oscuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .action-container button:hover {
+            background-color: #4a148c; /* Morado más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="header-button" onclick="location.href='file:///C:/Users/citzapopan/Documents/Nicepage%20Templates/citzapopan2/index.html'">Inicio</button>
+    </header>
+    
+    <div class="login-container">
+        <div class="image-container">
+            <img src="C:\Users\citzapopan\Documents\Nicepage Templates\citzapopan2\images.png" alt="Imagen de Ejemplo">
+        </div>
+        <div class="login-form">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button onclick="checkLogin()">Iniciar Sesión</button>
+        </div>
+    </div>
+
+    <div class="slider-container" id="slider">
+        <img src="https://via.placeholder.com/600x400?text=Imagen+1" alt="Imagen 1" onclick="showActions()">
+        <img src="https://via.placeholder.com/600x400?text=Imagen+2" alt="Imagen 2" onclick="showActions()">
+        <img src="https://via.placeholder.com/600x400?text=Imagen+3" alt="Imagen 3" onclick="showActions()">
+    </div>
+
+    <div class="action-container" id="actions">
+        <button onclick="downloadFile()">Descargar Actividad</button>
+        <button onclick="location.href='https://forms.gle/kiy2b7fSLrTN1zwM8'">Subir Actividad</button>
+    </div>
+
+    <script>
+        const validUsers = {
+            usuario1: 'contraseña1',
+            usuario2: 'contraseña2',
+            usuario3: 'contraseña3',
+            usuario4: 'contraseña4',
+            usuario5: 'contraseña5',
+            usuario6: 'contraseña6'
+        };
+
+        function checkLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const slider = document.getElementById('slider');
+            const actions = document.getElementById('actions');
+
+            if (validUsers[username] === password) {
+                document.querySelector('.login-container').style.display = 'none';
+                slider.style.display = 'block';
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        }
+
+        function showActions() {
+            const slider = document.getElementById('slider');
+            const actions = document.getElementById('actions');
+            slider.style.display = 'none';
+            actions.style.display = 'block';
+        }
+
+        function downloadFile() {
+            window.location.href = 'https://github.com/citzapopan/Archivos/blob/archivos1/Generalidades.pdf?raw=true';
+        }
+    </script>
+</body>
+</html>
